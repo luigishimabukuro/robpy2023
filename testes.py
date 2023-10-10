@@ -3,11 +3,11 @@
 import numpy as np
 import RobPy as rp
 import matplotlib.pyplot as plot
-a=np.asarray([[1,2,3]]).T
-b=np.asarray([[4,5,6]]).T
+R = rp.matriz_rotacao_y(77*np.pi/180)
+r = rp.cria_vetor3([1, 4, -3])
 
-fig: plot.Figure = plot.figure()
-ax = Axes3D(fig)
-fig.add_axes(ax)
-rp.plota_vetor3(a)
-plot.show()
+T = rp.cria_operador4(m_rot_b_a=R)
+
+print(T)
+print(np.linalg.inv(T))
+print(-R.T @ r)
